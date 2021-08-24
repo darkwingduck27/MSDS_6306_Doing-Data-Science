@@ -2,21 +2,11 @@
 title: "Unit 1 R Markdown"
 author: "Bivin"
 date: "2/20/2019"
-output:
-  html_document: default
-  word_document: default
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 # UNIT 1 R Review Part 1.R
 ## Manipulation and Import
 
 ### R Data Manipulation and Data Import
-```{r}
-
 #Vectors
 age = c(22,21,24,19,20,23)
 age
