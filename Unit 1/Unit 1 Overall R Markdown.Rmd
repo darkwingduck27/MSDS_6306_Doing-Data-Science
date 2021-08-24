@@ -7,6 +7,8 @@ date: "2/20/2019"
 ## Manipulation and Import
 
 ### R Data Manipulation and Data Import
+```{r}
+
 #Vectors
 age = c(22,21,24,19,20,23)
 age
@@ -19,14 +21,12 @@ df1 = data.frame(Age = age, Years = yrs_math_ed)
 df1
 df1[4,2] #Data in the 4th row and 2nd column
 df1[1,] #all the data in the 1st row
-df1$Math_Level #all the data in the fourth column
+df1$Years #all the data in the second column
 
 ```
 
 ### Add a two more columns (variables).
 ```{r}
-a = c("Mary","Martha","Kim","Kristen","Amy","Sam")
-b = c("English","Math","Sociology","Math","Music","Dance")
 
 #Make a data frame
 df2 = data.frame(Name = a, Major = b)
@@ -147,7 +147,7 @@ mpg$cty #look at all city mpg values.
 
 ### Read in file.
 ```{r}
-Example1 = read.csv("/Users/bivin/Desktop/OLD COMPUTER ARCHIVES/KadAfrica/MSDS/DDS/DDS2/Unit 1 Git-ing Sta-R-ted/Datasets/BusinessSales.csv",header = TRUE)
+Example1 = read.csv("/Users/akpolzin/Desktop/SMU/SMU/ds_6306/MSDS_6306_Doing-Data-Science/Unit 1/BusinessSales.csv",header = TRUE)
 head(Example1)
 ```
 
@@ -172,7 +172,7 @@ plot(iris$Sepal.Length,iris$Petal.Length) #note domain and range of plot
 ### plot only viginica
 ```{r}
 irisVir = iris[iris$Species == "virginica",]
-plot(irisVir$Sepal.Length,irisVir$Petal.Length, col = "blue", ylim = c(0,7), xlim = c(4,8))
+plot(irisVir$Sepal.Length,irisVir$Petal.Length, col = "blue", ylim = c(0,7), xlim = c(4,8), main = "Virginica")
 irisVers = iris[iris$Species == "versicolor",]
 points(irisVers$Sepal.Length,irisVers$Petal.Length, col = "Red")
 irisSet = iris[iris$Species == "setosa",]
@@ -219,7 +219,7 @@ subject = c("English","Math","Sociology","Math","Music","Dance")
 
 df3 = data.frame(Age = age, Years = yrs_math_ed, Name = names, Subject = subject)
 
-barplot(df3$Years, names.arg = df3$Name)
+barplot(df3$Years, names.arg = df3$Name, ylab = "Years of Math", main = "Math Years by Name")
 ```
 
 ### We want a barplot of frequency of each class of car.
@@ -237,7 +237,7 @@ mpg$classFact = as.factor(mpg$class)
 head(mpg)
 summary(mpg$classFact)
 
-barplot(summary(mpg$classFact))
+barplot(summary(mpg$classFact),ylab = "Number of Cars", main = "Number of car Types")
 ```
 
 # UNIT 1 R Review Part 3.R
@@ -329,7 +329,7 @@ xbarGenerator2 = function(sampleSize = 30,number_of_samples = 100, mean = 0, sd 
   return(xBarVec)
 }
 
-xbars = xbarGenerator2(60,1000,50,10)
+xbars = xbarGenerator2(50,10000,60,10)
 hist(xbars)
 summary(xbars)
 sd(xbars)
